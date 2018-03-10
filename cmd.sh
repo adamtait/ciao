@@ -22,11 +22,18 @@ function block-domain () {
     elif [[ "${1}" = "off" ]]; then
         cp $SRC_PATH $DEST_PATH
     else
-        echo "USAGE: block-domain (add|remove) [website address]"
-        echo "Examples:"
-        echo "  block-domain add facebook.com"
-        echo "  block-domain remove facebook.com"
-        echo "  block-domain off"
-        echo "  block-domain on"
+        echo "block-domain 1.0"
+        echo "Usage: block-domain <command> [<args>]"
+        echo -e "\nAvailable commands are:"
+        echo -e "\ton\t\tstart blocking requests to stored internet domains"
+        echo -e "\toff\t\tstop blocking requests"
+        echo -e "\tadd <domain>\tadd a new domain (like google.com) to the list of blocked domains"
+        echo -e "\tremove <domain>\tremove domain from the list of blocked domains [NOTE: must exactly match previous entries]"
+        echo -e "\nExamples:"
+        echo -e "\tblock-domain add facebook.com"
+        echo -e "\tblock-domain remove facebook.com"
+        echo -e "\tblock-domain off"
+        echo -e "\tblock-domain on"
+        echo -e "\nFor full documentation, see: https://github.com/adamtait/DNS_blocker#readme"
     fi
 }
