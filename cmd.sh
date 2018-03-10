@@ -17,8 +17,18 @@ function block-domain () {
         echo "${2}" >> $F
     elif [[ "${1}" = "remove" ]]; then
         sed '/${2}/d' $F > $F
+    elif [[ "${1}" = "on" ]]; then
+        $SCRIPT_DIR/trigger.sh
+    elif [[ "${1}" = "off" ]]; then
+        SRC_PATH=$D/etc_hosts~orig
+        DEST_PATH=/etc/hosts
+        cp $SRC_PATH $DEST_PATH
     else
         echo "USAGE: block-domain (add|remove) [website address]"
-        echo "Example: block-domain add facebook.com"
+        echo "Examples:"
+        echo "  block-domain add facebook.com"
+        echo "  block-domain remove facebook.com"
+        echo "  block-domain off"
+        echo "  block-domain on"
     fi
 }
