@@ -24,14 +24,14 @@ if [[ ! -f $F ]]; then
     touch $F
 fi
 
-if [[ ! -r $DEST_PATH || ! -w $DEST_PATH ]]; then
-    echo "--- requesting access to ${DEST_PATH} (sudo chmod 666 ${DEST_PATH})"
-    sudo chmod 666 $DEST_PATH
+if [[ ! -f $SRC_PATH ]]; then
+    echo -e "--- creating /etc/hosts backup ${SRC_PATH}"
+    cp $DEST_PATH $SRC_PATH
 fi
 
-if [[ ! -f $SRC_PATH ]]; then
-    echo -e "--- creating ${SRC_PATH}"
-    cp $DEST_PATH $SRC_PATH
+if [[ ! -f $STATE ]]; then
+    echo -e "--- set initial ON state"
+    touch $STATE
 fi
 
 
