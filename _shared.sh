@@ -2,7 +2,8 @@
 
 D=$HOME/.dns_blocker
 F=$D/domains
+STATE=$D/.state
 
-SRC_PATH=$D/etc_hosts~orig
+SRC_PATH=$D/.etc_hosts~orig
 DEST_PATH=/etc/hosts
         
