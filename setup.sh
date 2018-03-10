@@ -24,10 +24,14 @@ if [[ ! -f $F ]]; then
     touch $F
 fi
 
-DEST_FILE=/etc/hosts
-if [[ ! -r $DEST_FILE || ! -w $DEST_FILE ]]; then
-    echo "--- requesting access to ${DEST_FILE} (sudo chmod 666 ${DEST_FILE})"
-    sudo chmod 666 $DEST_FILE
+if [[ ! -r $DEST_PATH || ! -w $DEST_PATH ]]; then
+    echo "--- requesting access to ${DEST_PATH} (sudo chmod 666 ${DEST_PATH})"
+    sudo chmod 666 $DEST_PATH
+fi
+
+if [[ ! -f $SRC_PATH ]]; then
+    echo -e "--- creating ${SRC_PATH}"
+    cp $DEST_PATH $SRC_PATH
 fi
 
 
