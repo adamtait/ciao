@@ -21,14 +21,20 @@ function block-domain () {
         $SCRIPT_DIR/trigger.sh
     elif [[ "${1}" = "off" ]]; then
         cp $SRC_PATH $DEST_PATH
+    elif [[ "${1}" = "list" ]]; then
+        cat $F
     else
         echo "block-domain 1.0"
+        echo "manage a list of blocked domains. A blocked domain will not recieve any network requests (requests will be re-directed to 127.0.0.1)"
         echo "Usage: block-domain <command> [<args>]"
+
         echo -e "\nAvailable commands are:"
-        echo -e "\ton\t\tstart blocking requests to stored internet domains"
-        echo -e "\toff\t\tstop blocking requests"
+        echo -e "\tlist\t\tsee the list of blocked domains"
         echo -e "\tadd <domain>\tadd a new domain (like google.com) to the list of blocked domains"
         echo -e "\tremove <domain>\tremove domain from the list of blocked domains [NOTE: must exactly match previous entries]"
+        echo -e "\ton\t\tstart blocking requests to stored internet domains"
+        echo -e "\toff\t\tstop blocking requests"
+                
         echo -e "\nExamples:"
         echo -e "\tblock-domain add facebook.com"
         echo -e "\tblock-domain remove facebook.com"
