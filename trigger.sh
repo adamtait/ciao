@@ -26,7 +26,7 @@ cp $SRC_PATH $TMP_PATH
 awk '{site = $1} {printf "127.0.0.1\t%s\n", site}' $F >> $TMP_PATH
 
 # move new to /etc/hosts
-sudo mv $TMP_PATH $DEST_PATH
+mv $TMP_PATH $DEST_PATH
 
 # flush DNS cache
-sudo dscacheutil -flushcache
+dscacheutil -flushcache   # normally, this command requires `sudo`
