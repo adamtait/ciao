@@ -24,6 +24,11 @@ if [[ ! -f $F ]]; then
     touch $F
 fi
 
+DEST_FILE=/etc/hosts
+if [[ ! -r $DEST_FILE || ! -w $DEST_FILE ]]; then
+    echo "--- requesting access to ${DEST_FILE} (sudo chmod 666 ${DEST_FILE})"
+    sudo chmod 666 $DEST_FILE
+fi
 
 
 if [[ $(command -v watchman) ]]; then
