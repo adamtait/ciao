@@ -12,13 +12,13 @@ SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 source "${SCRIPT_DIR}/_shared.sh"
 
 
-function blocksite () {
+function block-domain () {
     if [[ "${1}" = "add" ]]; then
         echo "${2}" >> $F
     elif [[ "${1}" = "remove" ]]; then
         sed '/${2}/d' $F > $F
     else
-        echo "USAGE: blocksite (add|remove) [website address]"
-        echo "Example: blocksite add facebook.com"
+        echo "USAGE: block-domain (add|remove) [website address]"
+        echo "Example: block-domain add facebook.com"
     fi
 }

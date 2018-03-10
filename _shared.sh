@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-D=$HOME/.website_blocker
-F=$D/sites
+D=$HOME/.dns_blocker
+F=$D/domains
