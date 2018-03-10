@@ -12,13 +12,20 @@ SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 source "${SCRIPT_DIR}/_shared.sh"
 
     
-TMP_PATH=/tmp/etc_hosts
+TMP_PATH=$D/etc_hosts.tmp
 
-# create new /etc/hosts
+# create new /etc/hosts copy
 cp $SRC_PATH $TMP_PATH
-awk '{site = $1} {printf "127.0.0.1\t%s\n", site}' $F >> $TMP_PATH
 
-# move new to /etc/hosts
+if [[ -f $STATE ]]; then    
+    # add root domains
+    awk '{site = $1} {printf "127.0.0.1\t%s\n", site}' $F >> $TMP_PATH
+
+    # add all subdomains
+    awk '{site = $1} {printf "127.0.0.1\t*.%s\n", site}' $F >> $TMP_PATH
+fi
+
+# move new file to /etc/hosts
 mv $TMP_PATH $DEST_PATH
 
 # flush DNS cache
