@@ -26,7 +26,7 @@ if [[ -f $STATE ]]; then
 fi
 
 # move new file to /etc/hosts
-mv $TMP_PATH $DEST_PATH
+sudo mv $TMP_PATH $DEST_PATH
 
 # flush DNS cache
-dscacheutil -flushcache   # normally, this command requires `sudo`
+sudo dscacheutil -flushcache
