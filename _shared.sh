@@ -3,7 +3,7 @@
 VERSION=1.0.1
 CMD=ciao
 
-D=$HOME/.dns_blocker
+D=$HOME/.ciao
 F=$D/domains
 STATE=$D/.state
 

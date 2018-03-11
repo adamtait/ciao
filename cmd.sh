@@ -22,11 +22,11 @@ manage a list of blocked domains. A blocked domain will not recieve any network 
 Usage: $CMD <command> [<args>]
 
 Available commands are:
-          list          see the list of blocked domains
-          add <domain>	add a new domain (like google.com) to the list of blocked domains
+          list                  see the list of blocked domains
+          add <domain>	        add a new domain (like google.com) to the list of blocked domains
           remove <domain>	remove domain from the list of blocked domains [NOTE: must exactly match previous entries]
-          on		start blocking requests to stored internet domains
-          off		stop blocking requests. Restores /etc/hosts to original state.
+          on		        start blocking requests to stored internet domains
+          off		        stop blocking requests. Restores /etc/hosts to original state.
                 
 Examples:
 	$CMD add facebook.com
@@ -43,13 +43,13 @@ ciao () {
     case "$1" in
         list)
             cat $F
-            exit 0
+            return 0
             ;;
         add)
             echo "${2}" >> $F
             ;;
         remove)
-            sed -i '' '/${2}/d' $F
+            sed -i '' "/${2/\./\\.}/d" $F
             ;;
         on)
             touch $STATE
@@ -58,8 +58,8 @@ ciao () {
             rm -rf $STATE
             ;;
         *)
-            echo $HELP_TEXT
-            exit 0
+            echo "$HELP_TEXT"
+            return 0
             ;;
     esac
 
