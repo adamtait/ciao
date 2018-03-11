@@ -62,4 +62,4 @@ echo -e "\t 4. to save & quit, type 'ESC : w q'"
 echo -e "\n\t--------- FIN ---------"
 
 
-echo -e "\n\n########## DNS Blocker Setup: Complete ##########"
+echo -e "\n\n########## DNS Blocker Setup: Complete ##########\n"
