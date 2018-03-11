@@ -25,8 +25,13 @@ if [[ -f $STATE ]]; then
     awk '{site = $1} {printf "127.0.0.1\t*.%s\n", site}' $F >> $TMP_PATH
 fi
 
+echo -e "\n--- updating system blocked domains list (/etc/hosts)"
+
 # move new file to /etc/hosts
 sudo mv $TMP_PATH $DEST_PATH
 
 # flush DNS cache
 sudo dscacheutil -flushcache
+
+
+echo -e "...fin."
