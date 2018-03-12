@@ -3,7 +3,7 @@
 get_script_dir () {
     # In case this script is symbolically linked from elsewhere
     # Taken from https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
-    SOURCE="${BASH_SOURCE[0]}"
+    SOURCE=$1
     while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
         DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
         SOURCE="$(readlink "$SOURCE")"
@@ -11,9 +11,10 @@ get_script_dir () {
     done
     echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
+export -f get_script_dir
 
 
-SCRIPT_DIR=$(get_script_dir)
+SCRIPT_DIR=$(get_script_dir "${BASH_SOURCE[0]}")
 source "${SCRIPT_DIR}/_shared.sh"
 
 HELP_TEXT="\
