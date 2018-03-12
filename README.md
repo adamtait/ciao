@@ -5,10 +5,10 @@
 ## Usage
 
 ```
-ciao add facebook.com
-ciao remove facebook.com
-ciao off
-ciao on
+ciao add facebook.com        # starts blocking facebook.com network access
+ciao remove facebook.com     # stop blocking facebook.com
+ciao off                     # stop block *all* added domains
+ciao on                      # start blocking *all* domains, again
 ```
 
 
