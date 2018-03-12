@@ -50,8 +50,8 @@ ciao () {
 
 HELP_TEXT="\
 $CMD $VERSION
-manage a list of blocked domains. A blocked domain will not recieve
-any network requests
+manage a list of _blocked domains_. 
+A _blocked domain_ will not receive any network requests.
 
 Usage: $CMD <command> [<args>]
 
