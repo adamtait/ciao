@@ -40,24 +40,16 @@ fi
 if [[ ! -d $OVERRIDES ]]; then
     echo "--- creating ${OVERRIDES}"
     mkdir $OVERRIDES
-    mkdir $OVERRIDES/IPv4
-    mkdir $OVERRIDES/IPv6
 fi
 
 
-link_global_overrides () {
-    DEST_DIR="${OVERRIDES}/${1}"
-    for file_path in $(find "${SCRIPT_DIR}/overrides/${1}" -type f); do
-        file_name=$(basename "$file_path")
-        if [[ ! -h ${DEST_DIR}/${file_name} ]]; then
-            echo "--- linking global override ${file_name}"
-            ln -s ${file_path} ${DEST_DIR}
-        fi
-    done
-}
-
-link_global_overrides "IPv4"
-link_global_overrides "IPv6"
+for file_path in $(find "${SCRIPT_DIR}/overrides" -type f); do
+    file_name=$(basename "$file_path")
+    if [[ ! -h ${OVERRIDES}/${file_name} ]]; then
+        echo "--- linking global override ${file_name}"
+        ln -s ${file_path} ${OVERRIDES}/
+    fi
+done
 
 
 echo -e "\n########## CIAO Setup: Fin ##########\n"
