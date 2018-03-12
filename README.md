@@ -2,6 +2,35 @@
 
 **Bash command line tool for managing /etc/hosts**
 
+## Usage
+
+```
+ciao add facebook.com
+ciao remove facebook.com
+ciao off
+ciao on
+```
+
+
+## Installation
+
+#### TL;DR
+
+Open a terminal, then
+
+```
+git clone https://github.com/adamtait/ciao.git
+./ciao/quick_install.sh
+```
+
+#### Full Install
+
+1. clone this repo
+2. source `cmd.sh` from your `.bashrc` or `.bash_profile`
+3. run `./setup.sh`
+
+
+
 ## Motivation
 
 I spend too much time on my computers browsing endless news articles
@@ -31,20 +60,6 @@ This tool (really, a set of tools) works great for me. If you get into
 it and have any thoughts or feedback, PRs & issues are certainly
 welcome!
 
-
-## Installation
-
-#### TL;DR
-
-```
-./quick_install.sh
-```
-
-#### Full Install
-
-1. clone this repo
-2. source `cmd.sh` from your `.bashrc` or `.bash_profile`
-3. run `./setup.sh`
 
 
 ## Design Decisions
