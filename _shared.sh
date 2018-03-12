@@ -6,6 +6,8 @@ CMD=ciao
 D=$HOME/.ciao
 F=$D/domains
 STATE=$D/.state
+OVERRIDES=$D/overrides
+
 
 SRC_PATH=$D/.etc_hosts~orig
 DEST_PATH=/etc/hosts
