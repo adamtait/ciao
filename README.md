@@ -66,8 +66,8 @@ maintain the duplicate and syncing between them.
 Changing `/etc/hosts` requires changing a `root` owned file with
 limited write permissions. This means `sudo`.
 
-In my mind, an effort to drop the password was a closely balanced
-tradeoff. It would be inconvenient to require `sudo` and entering your
+In my mind, an effort to _not required a password_ was a closely balanced
+tradeoff. It would be inconvenient to require `sudo` and enter your
 password on every change, especially if you change `ciao` often. On
 the other hand, isn't the point that you _shouldn't_ be enabling &
 disabling often? Requiring a password is a barrier, possibly aiding to
@@ -76,6 +76,21 @@ curbing your internet addiction.
 The tie-breaker was requiring additional setup & reduced security by
 changing `/etc/sudoers` (or better, `/etc/sudoers.d/`) in order to
 remove the password requirement of `sudo`.
+
+Furthermore, if you make a bunch of changes within a few seconds of
+each other then `sudo` won't ask for a password after the first
+success. That was the most common frustrating scenario, which `sudo`
+already makes painless.
+
+
+Also considered was using `sudo` only once to change the
+ownership/permissions on `/etc/hosts`. Beyond the lower permissions
+being a possible security hole (any app could re-direct traffic from
+your banking website to a phishing scam site), it didn't actually
+work. Appending to a permissable `/etc/hosts` file worked but
+overwriting it did not. I didn't delve further to understand the
+source.
+
 
 
 #### not using a file watcher
@@ -96,6 +111,19 @@ tried them but suspect they would have similar challenges.
 
 #### not using a cron
 
-Setting focus time on schedule doesn't really suit my style.
-Additionally, it would require special permissions (changes to
-/etc/sudoers or /etc/sudoers.d) similar to a file watcher.
+Setting focus time on schedule doesn't fit my lifestyle. I work &
+goof-off at different hours each day. Additionally, it would require
+special permissions (changes to /etc/sudoers or /etc/sudoers.d)
+similar to a file watcher.
+
+
+#### Overrides
+
+Once I found out that _facebook.com_ makes blocking their DNS entries
+very difficult (see [overrides/facebook.com](overrides/facebook.com)
+for all the domains needed), I decided to add _overrides_. I suspect
+that many other companies (like _google.com_ or _stumbleupon.com_)
+that trying desperately to track you will have similarly long lists of
+DNS entries that need to be blocked.
+
+I welcome PRs for additional global overrides.
