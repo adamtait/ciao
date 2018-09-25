@@ -148,8 +148,10 @@ I welcome PRs for additional global overrides.
 
 I recently learned about [DNSCrypt](https://dnscrypt.info/) and have
 found it to be an even better tool that `/etc/hosts` for managing DNS.
-It offers so much more control. However, it doesn't offer command line
-support for cloaking or blocking domain names. 
+It offers so much more control, but
+[in case you're not convinced - go read this](https://www.opendns.com/about/innovations/dnscrypt/).
+However, it doesn't offer command line support for cloaking or
+blocking domain names.
 
 Fortunately with a [simple change in config](config.dnscrypt.example),
 I was able to adapt CIAO to work with DNSCrypt also.
