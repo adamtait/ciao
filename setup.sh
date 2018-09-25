@@ -27,7 +27,8 @@ if [[ ! -f $F ]]; then
     touch $F
 fi
 
-if [[ ! -f $CONFIG_PATH ]]; then
+if [[ ! -f $CONFIG_PATH ]] && [[ ! -h $CONFIG_PATH ]]
+then
     echo "--- create default configuration file"
     CONFIG_EXAMPLE_PATH=${SCRIPT_DIR}/config.example
     cp $CONFIG_EXAMPLE_PATH $CONFIG_PATH
