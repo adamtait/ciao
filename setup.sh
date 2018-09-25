@@ -27,8 +27,14 @@ if [[ ! -f $F ]]; then
     touch $F
 fi
 
+if [[ ! -f $CONFIG_PATH ]]; then
+    echo "--- create default configuration file"
+    CONFIG_EXAMPLE_PATH=${SCRIPT_DIR}/config.example
+    cp $CONFIG_EXAMPLE_PATH $CONFIG_PATH
+fi
+
 if [[ ! -f $SRC_PATH ]]; then
-    echo "--- creating /etc/hosts backup ${SRC_PATH}"
+    echo "--- creating ${DEST_PATH} backup at ${SRC_PATH}"
     cp $DEST_PATH $SRC_PATH
 fi
 
@@ -50,6 +56,8 @@ for file_path in $(find "${SCRIPT_DIR}/overrides" -type f); do
         ln -s ${file_path} ${OVERRIDES}/
     fi
 done
+
+
 
 
 echo -e "\n########## CIAO Setup: Fin ##########\n"
