@@ -1,6 +1,6 @@
 # CIAO: Curb Internet Addiction by Omission
 
-**Bash command line tool for managing /etc/hosts**
+**Bash command line tool for managing /etc/hosts or DNSCrypt cloaking**
 
 ## Usage
 
@@ -142,3 +142,14 @@ that trying desperately to track you will have similarly long lists of
 DNS entries that need to be blocked.
 
 I welcome PRs for additional global overrides.
+
+
+#### Support for DNSCrypt
+
+I recently learned about [DNSCrypt](https://dnscrypt.info/) and have
+found it to be an even better tool that `/etc/hosts` for managing DNS.
+It offers so much more control. However, it doesn't offer command line
+support for cloaking or blocking domain names. 
+
+Fortunately with a [simple change in config](config.dnscrypt.example),
+I was able to adapt CIAO to work with DNSCrypt also.

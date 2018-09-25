@@ -1,0 +1,54 @@
+##############################################
+#                                            #
+#             ciao configuration             #
+#                                            #
+##############################################
+
+## This is an example configuration file.
+## You should adjust it to your needs, and save it as "~/.ciao/config"
+##
+## Online documentation is available here: https://github.com/adamtait/ciao
+
+
+
+##################################
+#          Path settings         #
+##################################
+
+## Uncomment to change the path of the managed file (defaults to '/etc/hosts')
+
+DEST_PATH=~/.dnscrypt/cloaking-rules.txt
+
+
+
+##################################
+#        Rewrite settings        #
+##################################
+
+## Uncomment to change the IP address for all DNS rewrite rules
+## (defaults to 'localhost' addresses)
+
+# IPv4_DEST="127.0.0.1"
+# IPv6_DEST="fe80::1%lo0"
+
+
+## HOSTS file expects [DESTINATION_DNS REQUEST_DNS] order
+## but other applications (like DNSCrypt) use the reverse order ([REQUEST_DNS DESTINATION_DNS])
+
+## For example, DEST_DNS_FIRST=false would give
+## 10.1.1.1     example.com
+## and DEST_DNS_FIRST=true:
+## example.com  10.1.1.1
+
+DEST_DNS_FIRST=true
+
+
+
+##################################
+#        Post Change Hook        #
+##################################
+
+## Uncomment to run a command after every update to the DEST_PATH
+## (defaults to 'sudo dscacheutil -flushcache')
+
+AFTER_CHANGES_RUN="echo '--> DNSCrypt restart'; sudo dnscrypt-proxy -config ${HOME}/.dnscrypt/dnscrypt-proxy.toml -service restart"
