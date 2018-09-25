@@ -20,6 +20,11 @@
 # DEST_PATH=/etc/hosts
 
 
+## Uncomment to require sudo before update path of the managed file
+## (defaults to 'true')
+
+# DEST_PATH_REQUIRES_SUDO=true
+
 
 ##################################
 #        Rewrite settings        #
@@ -32,12 +37,27 @@
 # IPv6_DEST="fe80::1%lo0"
 
 
-## HOSTS file expects [DESTINATION_DNS REQUEST_DNS] order
-## but other applications (like DNSCrypt) use the reverse order ([REQUEST_DNS DESTINATION_DNS])
+
+## HOSTS file expects [DESTINATION_DNS REQUEST_DNS] order but other
+## applications (like DNSCrypt) use the reverse order
+## ([REQUEST_DNS DESTINATION_DNS])
+
 
 ## For example, DEST_DNS_FIRST=false would give
 ## 10.1.1.1     example.com
-## and DEST_DNS_FIRST=true:
+
+## and          DEST_DNS_FIRST=true:
 ## example.com  10.1.1.1
 
 # DEST_DNS_FIRST=false
+
+
+
+##################################
+#        Post Change Hook        #
+##################################
+
+## Uncomment to run a command after every update to the DEST_PATH
+## (defaults to 'sudo dscacheutil -flushcache', which flushes DNS cache on Mac OSX)
+
+# AFTER_CHANGES_RUN="sudo dscacheutil -flushcache"

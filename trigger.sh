@@ -60,13 +60,15 @@ fi
 echo "--> updating system blocked domains list (${DEST_PATH})"
 
 # move new file to $DEST_PATH (probably /etc/hosts)
-if [[ $DEST_PATH == "/etc/hosts" ]]
+if $DEST_PATH_REQUIRES_SUDO
 then
     sudo mv $TMP_PATH $DEST_PATH
-    sudo dscacheutil -flushcache   # flush DNS cache
 else
     mv $TMP_PATH $DEST_PATH
 fi
+
+# run the after changes hook
+eval $AFTER_CHANGES_RUN
 
 
 echo "...fin."
