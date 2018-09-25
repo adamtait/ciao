@@ -28,7 +28,7 @@ git clone https://github.com/adamtait/ciao.git
 1. clone this repo
 2. source `cmd.sh` from your `.bashrc` or `.bash_profile`
 3. run `./setup.sh`
-
+4. update your `~/.ciao/config`
 
 
 ## Motivation
