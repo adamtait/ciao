@@ -60,4 +60,4 @@
 ## Uncomment to run a command after every update to the DEST_PATH
 ## (defaults to 'sudo dscacheutil -flushcache', which flushes DNS cache on Mac OSX)
 
-# AFTER_CHANGES_RUN="sudo dscacheutil -flushcache"
+AFTER_CHANGES_RUN="sudo dscacheutil -flushcache"
