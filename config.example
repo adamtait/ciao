@@ -17,13 +17,13 @@
 
 ## Uncomment to change the path of the managed file (defaults to '/etc/hosts')
 
-# DEST_PATH=/etc/hosts
+DEST_PATH=/etc/hosts
 
 
 ## Uncomment to require sudo before update path of the managed file
 ## (defaults to 'true')
 
-# DEST_PATH_REQUIRES_SUDO=true
+DEST_PATH_REQUIRES_SUDO=true
 
 
 ##################################
