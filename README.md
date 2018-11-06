@@ -115,8 +115,7 @@ plain text file that I could easily edit and automatically have
 changes reflected in /etc/hosts. Adding this feature would require
 watching the file for changes, probably using a file watcher.
 
-I use [watchman](https://facebook.github.io/watchman/) elsewhere and
-think it's a well-designed tool. However, it wasn't worth the effort
+However, it wasn't worth the effort
 to get sudo to work without a tty session available (watchman runs
 without one).
 
