@@ -15,3 +15,8 @@ g.redditmedia.com
 www.reddithelp.com
 e.reddit.com
 i.redditmedia.com
+i.reddit.com
+redd.it
+amp-reddit-com.cdn.ampproject.org
+old.reddit.com
+new.reddit.com
