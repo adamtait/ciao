@@ -20,3 +20,4 @@ redd.it
 amp-reddit-com.cdn.ampproject.org
 old.reddit.com
 new.reddit.com
+alb.reddit.com
