@@ -15,7 +15,8 @@ source "${SCRIPT_DIR}/_shared.sh"
 
 
 
-echo -e "\n########## CIAO Setup: Begin ##########"
+echo ""
+echo "########## CIAO Setup: Begin ##########"
 
 if [[ ! -d $D ]]; then
     echo "--- creating ${D}"
@@ -59,6 +60,5 @@ for file_path in $(find "${SCRIPT_DIR}/overrides" -type f); do
 done
 
 
-
-
-echo -e "\n########## CIAO Setup: Fin ##########\n"
+echo ""
+echo "########## CIAO Setup: Fin ##########\n"
