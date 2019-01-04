@@ -26,4 +26,6 @@ AFTER_CHANGES_RUN="sudo dscacheutil -flushcache"
 
 # Local Configuration
 CONFIG_PATH=$D/config
-source $CONFIG_PATH
+if [[ -f $CONFIG_PATH ]] || [[ -h $CONFIG_PATH ]] || [[ -d $CONFIG_PATH ]]; then
+    source $CONFIG_PATH
+fi
