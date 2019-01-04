@@ -1,4 +1,4 @@
-# CIAO: Curb Internet Addiction by Omission
+# ciao: Curb Internet Addiction by Omission
 
 **Bash command line tool for managing /etc/hosts or DNSCrypt cloaking**
 
