@@ -14,7 +14,7 @@ get_script_dir () {
 export -f get_script_dir
 
 
-SCRIPT_DIR=$(get_script_dir "${BASH_SOURCE[0]}")
+SCRIPT_DIR=$(get_script_dir "${BASH_SOURCE[0]:-$0}")
 source "${SCRIPT_DIR}/_shared.sh"
 
 
