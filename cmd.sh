@@ -11,7 +11,6 @@ get_script_dir () {
     done
     echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
-export -f get_script_dir
 
 
 SCRIPT_DIR=$(get_script_dir "${BASH_SOURCE[0]:-$0}")
